@@ -199,10 +199,11 @@ def edit_video(video_id):
 
 # Actualizar el ACCESS_TOKEN al iniciar la aplicación
 if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))  # Usa el puerto que Render asigna
     try:
         long_lived_token = get_long_lived_token(ACCESS_TOKEN)
         ACCESS_TOKEN = long_lived_token  # Actualiza el token a uno de 60 días
         print(f"Token actualizado exitosamente: {ACCESS_TOKEN}")
     except Exception as e:
         print(f"No se pudo actualizar el token: {e}")
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port)
