@@ -1,0 +1,5 @@
+app 0.0 = Solo puede subir videos subiendolo manualmente desde la pc
+app 0.1 = Puede subir videos cada X minutos, tiene un error y es que cuando un video no se descarga solo avisa al momento de subirlo y no antes
+app 0.2 =
+app 0.3 Version funcionan, solo funciona con token de 1 hora
+app 0.4 = 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cola de Videos</title>
+    <script>
+        function toggleEditForm(videoId) {
+            const form = document.getElementById(`edit-form-${videoId}`);
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Programar un nuevo video</h1>
+    <form action="/" method="POST">
+        <label for="video_url">URL del video:</label>
+        <input type="text" id="video_url" name="video_url" required>
+        <br>
+        <label for="description">Descripción:</label>
+        <input type="text" id="description" name="description">
+        <br>
+        <label for="hashtags">Hashtags (separados por comas):</label>
+        <input type="text" id="hashtags" name="hashtags" value="{{ hashtags }}">
+        <br>
+        <button type="submit">Programar video</button>
+    </form>
+
+    <h2>Cola de videos</h2>
+    <ul>
+        {% for video in queue[::-1] %}
+        <li>
+            <span>
+                {% if video.status == "uploaded" %}
+                    ✅ <!-- Emoji de flecha verde -->
+                {% elif video.status == "pending" %}
+                    🟡 <!-- Emoji de flecha amarilla -->
+                {% endif %}
+            </span>
+
+            <span>
+                {% if video.upload_status == "success" %}
+                    🚀 <!-- Emoji de éxito -->
+                {% elif video.upload_status == "failed" %}
+                    ❌ <!-- Emoji de fallo -->
+                {% endif %}
+            </span>
+            <strong>ID:</strong> {{ video.id }} |
+            <strong>Descripción:</strong> {{ video.description }} {{ hashtags }} |
+            <strong>Programado para:</strong> {{ video.scheduled_time }}
+
+            <button type="button" onclick="toggleEditForm({{ video.id }})">Editar</button>
+
+            <form id="edit-form-{{ video.id }}" style="display:none;" action="/edit/{{ video.id }}" method="POST">
+                <input type="datetime-local" name="scheduled_time" value="{{ video.scheduled_time.replace(' ', 'T') }}" required>
+                <input type="text" name="description" placeholder="Nueva descripción" value="{{ video.description }}">
+                <button type="submit">Actualizar</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

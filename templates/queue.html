@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cola de Publicación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cola de Publicación</h1>
+
+    {% if video_queue %}
+        <table>
+            <tr>
+                <th>Video</th>
+                <th>Descripción</th>
+                <th>Fecha y Hora de Publicación (EST)</th>
+            </tr>
+            {% for video in video_queue %}
+            <tr>
+                <td>{{ video[0] }}</td>
+                <td>{{ video[1] }}</td>
+                <td>{{ video[2].strftime('%Y-%m-%d %H:%M:%S') }} EST</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No hay videos en cola.</p>
+    {% endif %}
+
+    <a href="/">⬅ Volver</a>
+</body>
+</html>

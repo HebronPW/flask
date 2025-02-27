@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Video</title>
+</head>
+<body>
+    <h1>Editar Video</h1>
+
+    <!-- Formulario de edición -->
+    <form action="/edit/{{ video.id }}" method="POST">
+        <label for="scheduled_time">Nueva hora programada (YYYY-MM-DD HH:MM:SS):</label>
+        <input type="text" id="scheduled_time" name="scheduled_time" value="{{ video.scheduled_time }}" required>
+        <br><br>
+
+        <label for="description">Nueva descripción:</label>
+        <input type="text" id="description" name="description" value="{{ video.description }}">
+        <br><br>
+
+        <button type="submit">Actualizar video</button>
+    </form>
+
+    <!-- Enlace para volver a la página principal -->
+    <p><a href="/">Volver a la cola</a></p>
+</body>
+</html>
