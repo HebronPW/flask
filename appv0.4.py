@@ -15,7 +15,7 @@ app = Flask(__name__)
 PAGE_ID = "306117823384646"
 APP_ID = "8853303641422476"
 APP_SECRET = "43656dc711e91b81b79e58184d0ce74b"  # Reemplaza esto con el App Secret real desde el panel de desarrolladores
-ACCESS_TOKEN = "EAB90CGKiuowBO2RIrxaeXvu4f8DsALQi9AWBKaqUIbWnyvyRYeqLitsFk3QW4CyY42yg6TYbJZA1t6kUZAxU7htDMZA6gdXdseYSiKkdwcT0fHZCFBKdLJdcA5goNyejAxl0b7UVpBM2CDNuWqD4Hkpeq1OVBRv624cuBZA845u8JOR2SCLb5jQdBWucqkOwtxjOho8fsoydz8rMzKaruvBnEbfYIr8AsEpbbUZA0ZD"
+ACCESS_TOKEN = "EAB90CGKiuowBO7J73GVstqqy2DKGU7vNcFhvcXqVHg11yxeZCkueJIwVsET0Hb1L0kJkGlH451q3bPZBrBgLZCoRq7hZCfklRZAlUOUzWhmLlY8bmPg27GnZCoZB53vhL3KPL06GA6ZALRDROLZAPl590JXbN9lhMZCfdxkroUnb2eD2HviBn4QRrRBSH3zKJ0PqwdTbAODuOFeytKfoySKcCcYGSHaZA5eLp5cPWaryXYZD"
 est_tz = pytz.timezone("America/New_York")
 
 # Horarios predeterminados en hora del Este (EST)
